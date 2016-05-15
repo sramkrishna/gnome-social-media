@@ -1,0 +1,7 @@
+[default]
+name=Default Configuration
+device=local
+runtime=jhbuild
+config-opts=
+prefix=/home/sramkris/jhbuild/install
+default=true
