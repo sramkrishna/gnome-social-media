@@ -33,8 +33,6 @@ struct _GnomeSocialMediaClass
 };
 
 GnomeSocialMedia *gnome_social_media_new (void);
-const gchar gnome_social_media_get_property (GnomeSocialMedia *self);
-void gnome_social_media_set_property (GnomeSocialMedia *self);
 
 G_END_DECLS
 

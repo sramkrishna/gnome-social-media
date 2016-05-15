@@ -73,8 +73,6 @@ PKG_PROG_PKG_CONFIG([0.22])
 GLIB_GSETTINGS
 GOBJECT_INTROSPECTION_CHECK([1.42.0])
 
-VAPIGEN_CHECK
-
 
 AX_COMPILER_FLAGS
 
@@ -90,17 +88,10 @@ AX_CHECK_COMPILE_FLAG([-std=gnu11],
 dnl ***********************************************************************
 dnl Check for required packages
 dnl ***********************************************************************
-PKG_CHECK_MODULES(GNOME_SOCIAL_MEDIA, [gio-2.0 >= 2.42, gobject-2.0 >= 2.40, glib-2.0 >= 2.40])
-PKG_CHECK_MODULES(LIBSOUP, [libsoup-2.4 >= 2.42])
-AC_SUBST(LIBSOUP_CFLAGS)
-AC_SUBST(LIBSOUP_LIBS)
-AC_SUBST(GOBJECT_CFLAGS)
-AC_SUBST(GOBJECT_LIBS)
-AC_SUBST(GLIB_CFLAGS)
-AC_SUBST(GLIB_LIBS)
-
-
-
+PKG_CHECK_MODULES(GNOME_SOCIAL_MEDIA, [glib-2.0 >= 2.40
+                                       gobject-2.0 >= 2.40
+                                       gio-2.0 >= 2.42
+                                       libsoup-2.4 >= 2.42])
 
 
 dnl ***********************************************************************

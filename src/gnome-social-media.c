@@ -17,19 +17,19 @@
  */
 
 #include "gnome-social-media.h"
-include <glib.h>
-include <libsoup/soup.h>
+#include <glib.h>
+#include <libsoup/soup.h>
 
 typedef struct
 {
-
+  guint dummy;
 } GnomeSocialMediaPrivate;
 
 G_DEFINE_TYPE_WITH_PRIVATE (GnomeSocialMedia, gnome_social_media, G_TYPE_OBJECT)
 
 enum {
 	PROP_0,
-  	PROP_NAME,
+	PROP_NAME,
 	N_PROPS
 };
 
@@ -44,8 +44,8 @@ gnome_social_media_new (void)
 static void
 gnome_social_media_finalize (GObject *object)
 {
-	GnomeSocialMedia *self = (GnomeSocialMedia *)object;
-	GnomeSocialMediaPrivate *priv = gnome_social_media_get_instance_private (self);
+/*	GnomeSocialMedia *self = GNOME_SOCIAL_MEDIA (object);*/
+/*	GnomeSocialMediaPrivate *priv = gnome_social_media_get_instance_private (self);*/
 
 	G_OBJECT_CLASS (gnome_social_media_parent_class)->finalize (object);
 }
@@ -56,7 +56,7 @@ gnome_social_media_get_property (GObject    *object,
                                  GValue     *value,
                                  GParamSpec *pspec)
 {
-	GnomeSocialMedia *self = GNOME_SOCIAL_MEDIA (object);
+/*	GnomeSocialMedia *self = GNOME_SOCIAL_MEDIA (object);*/
 
 	switch (prop_id)
 	  {
@@ -71,7 +71,7 @@ gnome_social_media_set_property (GObject      *object,
                                  const GValue *value,
                                  GParamSpec   *pspec)
 {
-	GnomeSocialMedia *self = GNOME_SOCIAL_MEDIA (object);
+/*	GnomeSocialMedia *self = GNOME_SOCIAL_MEDIA (object);*/
 
 	switch (prop_id)
 	  {
@@ -88,9 +88,26 @@ gnome_social_media_class_init (GnomeSocialMediaClass *klass)
 	object_class->finalize = gnome_social_media_finalize;
 	object_class->get_property = gnome_social_media_get_property;
 	object_class->set_property = gnome_social_media_set_property;
+
+  properties [PROP_NAME] =
+      g_param_spec_string ("name",
+                           "Name",
+                           "The name.",
+                           NULL,
+                           G_PARAM_READWRITE |
+                           G_PARAM_CONSTRUCT_ONLY |
+                           G_PARAM_STATIC_STRINGS);
 }
 
 static void
 gnome_social_media_init (GnomeSocialMedia *self)
 {
+}
+
+
+gint
+main (gint    argc,
+      gchar **argv)
+{
+  return 0;
 }
